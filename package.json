@@ -23,7 +23,7 @@
     "express-session": "^1.17.3",
     "jsonwebtoken": "^9.0.0",
     "method-override": "^3.0.0",
-    "mongoose": "^7.3.4",
+    "mongoose": "^14.20.1",
     "multer": "^1.4.5-lts.1",
     "path": "^0.12.7"
   },
