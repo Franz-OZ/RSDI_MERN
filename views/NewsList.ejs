@@ -1,0 +1,29 @@
+<div class="container">
+  <div class="row justify-content-center">
+    <% data.forEach(news => { %>
+<a href="/news/<%=news._id%>/">
+      <div class="newsGridItem row">
+        <div class="grid-child image col">
+
+
+            <img src=<%=news.imageUrls[0] || '/img/RSDI-LOGO.jpeg'%> alt="">
+
+        </div>
+<div class="col">
+<div class="grid-child titleText">
+  <h2><%=news.title%></h2>
+
+</div>
+<span><%=news.createdAt.toDateString()%></span>
+</div>
+</div>
+  </a>
+    <% }) %>
+  </div>
+</div>
+
+<% if (nextPage !== null) { %>
+  <div class="text-center">
+    <a href="?page=<%=nextPage%>">View older posts</a>
+  </div>
+<% } %>

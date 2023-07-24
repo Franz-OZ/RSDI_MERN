@@ -1,0 +1,25 @@
+<div class="admin-title">
+  <a href="/dashboard">&larr; Back</a>
+  <h2>Blog-Posts</h2>
+  <a href="/add-blog" class='button'>+ Add New</a>
+</div>
+
+<ul class="admin-posts">
+<%data.forEach(Blog=>{%>
+  <li>
+    <a href="/blog-post/<%=Blog._id%>">
+      <%=Blog.title%> &nearr;
+      </a>
+      <div class="admin-post-controls">
+        <span><%=Blog.createdAt.toDateString()%></span>
+<a href="/edit-blog/<%=Blog._id%>" class='btn'>Edit</a>
+<form class="" action="/delete-blog/<%=Blog._id%>?_method=DELETE" method="POST">
+<input type="submit" class="btn" value="Delete">
+</form>
+      </div>
+  </li>
+<%})%>
+
+
+
+</ul>

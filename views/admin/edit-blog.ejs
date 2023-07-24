@@ -1,0 +1,66 @@
+<a href="/blog_admin">&larr; Back</a>
+<div class="news-admin">
+  <h2>Edit Post</h2>
+  <form class="" action="/delete-blog/<%=data._id%>?_method=DELETE" method="POST">
+    <input type="submit" name="" value="Delete" class="btn-delete btn">
+  </form>
+</div>
+
+<form class="" action="/edit-blog/<%=data._id%>?_method=PUT" method="POST" enctype="multipart/form-data">
+
+  <label for="title"><b>Title</b></label>
+  <input type="text" placeholder="Post Title" name="title" value="<%=data.title%>">
+
+  <label for="body"><b>Content</b></label>
+  <textarea name="body" id="body" rows="10" cols="50"><%=data.body%></textarea>
+
+  <label for="pdfFile"><b>Add PDF File</b></label>
+  <input type="file" name="pdfFile" id="pdfFile" accept=".pdf">
+
+  <input type="submit" value="Update" class="addBtn">
+</form>
+
+
+<script>
+  function example_image_upload_handler(blobInfo, success, failure, progress) {
+  const formData = new FormData();
+  formData.append('file', blobInfo.blob(), blobInfo.filename());
+
+  fetch('/upload-image', {
+    method: 'POST',
+    body: formData,
+  })
+    .then(response => {
+      if (!response.ok) {
+        throw new Error('Image upload failed: ' + response.status);
+      }
+      return response.json();
+    })
+    .then(data => {
+      if (data && data.location) {
+        const imageUrl = data.location;
+        const editor = tinymce.get('body');
+        console.log(imageUrl);
+        editor.insertContent(`<img src="${imageUrl}" name="${imageUrl}" alt="${blobInfo.filename()}">`);
+        success(imageUrl);
+      } else {
+        throw new Error('Image upload failed: Invalid response');
+      }
+    })
+    .catch(error => {
+      console.error(error);
+      failure('Image upload failed: ' + error.message);
+    });
+}
+
+tinymce.init({
+  selector: 'textarea',
+  plugins: 'anchor autolink charmap codesample emoticons image link lists media searchreplace table visualblocks wordcount mediaembed casechange formatpainter pageembed advtable advcode editimage typography',
+  toolbar: 'undo redo | blocks fontfamily fontsize | bold italic underline strikethrough | link image media table mergetags | spellcheckdialog a11ycheck typography | align lineheight | checklist numlist bullist indent outdent | emoticons charmap | removeformat',
+  automatic_uploads: true,
+  images_upload_url: '/upload-image',
+  images_upload_handler: example_image_upload_handler,
+  relative_urls: false
+});
+
+</script>

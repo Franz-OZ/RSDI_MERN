@@ -1,0 +1,52 @@
+<section id="about">
+    <div class="container">
+        <div class="row justify-content-center align-items-center">
+            <div class="col-lg-5">
+                <img src="img/RSDI-LOGO.jpeg" alt="">
+            </div>
+            <div class="col-lg-5 py-5">
+                <div class="row">
+                    <div class="col-12 mt-4">
+                        <div class="info-box">
+                            <div class="ms-4 text-justify">
+                                <h1>OUR Vision</h1>
+                                <p><b>Driving sustainable regional development in Georgia through innovation, empowerment, and collaboration for a prosperous and equitable future.
+                              </b></p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+<!-- News -->
+
+<section class="bg-light" id="portfolio">
+    <div class="container">
+        <div class="row">
+            <div class="col-12">
+                <div class="intro">
+                    <h1>Latest Developments</h1>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="projects-slider" class="owl-theme owl-carousel">
+      <% data.slice(-8).reverse().forEach(news => { %>
+        <div class="project">
+          <img src=<%= news.imageUrls[0] || '/img/RSDI-LOGO.jpeg'%> alt="">
+          <div class="overlay"></div>
+          <div class="content">
+            <a href="/news/<%= news._id %>">
+              <h2><%= news.title %></h2>
+            </a>
+            <h6><%= news.createdAt.toDateString() %></h6>
+          </div>
+        </div>
+      <% }) %>
+    </div>
+</section>

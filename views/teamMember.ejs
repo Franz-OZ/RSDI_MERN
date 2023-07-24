@@ -1,0 +1,32 @@
+<section>
+    <div class="container">
+      <div class="teamMember">
+
+            <div>
+              <div class="teamImage">
+                <img src="<%=data.imageUrl%>" alt="">
+              </div>
+                                <h1><%=data.name%></h1>
+                                <h3><%-data.role%></h3>
+                              </div>
+                              <%if (data.socMedia){%>
+                                <div class="social-icons-teamMember">
+                                    <p>
+                                        <% if (data.socMedia.linkedin) { %>
+                                      <a href="<%=data.socMedia.linkedin%>" target="_blank"><i class='bx bxl-linkedin'></i></a>
+                                       <% } %>
+                                       <% if (data.socMedia.gmail) { %>
+                                            <a href="mailto: <%=data.socMedia.gmail%>" target="_blank"><i class='bx bxl-gmail'></i></a>
+                                        <% } %>
+                                        <% if (data.socMedia.facebook) { %>
+                                            <a href="<%=data.socMedia.facebook%>" target="_blank"><i class='bx bxl-facebook'></i></a>
+                                        <% } %>
+                                        <% if (data.socMedia.twitter) { %>
+                                            <a href="<%=data.socMedia.twitter%>" target="_blank"><i class='bx bxl-twitter'></i></a>
+                                        <% } %>
+                                    </p>
+                                </div>
+                                <%  }%>
+                                  </div>
+                          </div>
+</section>

@@ -1,0 +1,55 @@
+<div class="author">
+  <h1 class="author_heading">Search Results</h1>
+  <section class=articles>
+
+    <% newsData.forEach(news => { %>
+      <a href="/news/<%= news._id %>">
+        <div class="newsGridItem row">
+          <div class="grid-child image col">
+            <img src="<%= news.imageUrls[0] || '/img/RSDI-LOGO.jpeg' %>" alt="">
+          </div>
+          <div class="col">
+            <div class="grid-child titleText">
+              <h2><%= news.title %></h2>
+            </div>
+            <span><%= news.createdAt.toDateString() %></span>
+          </div>
+        </div>
+      </a>
+    <% }) %>
+
+    <% projectsData.forEach(project => { %>
+      <a href="/projects/<%= project._id %>">
+        <div class="newsGridItem row">
+          <div class="grid-child image col">
+            <img src="<%= project.imageUrls[0] || '/img/RSDI-LOGO.jpeg' %>" alt="">
+          </div>
+          <div class="col">
+            <div class="grid-child titleText">
+              <h2><%= project.title %></h2>
+            </div>
+            <span><%= project.createdAt.toDateString() %></span>
+          </div>
+        </div>
+      </a>
+    <% }) %>
+
+    <% blogsData.forEach(blog => { %>
+      <a href="/blog-post/<%= blog._id %>">
+        <div class="newsGridItem row">
+          <div class="grid-child image col">
+            <img src="<%= blog.imageUrls[0] || '/img/RSDI-LOGO.jpeg' %>" alt="">
+          </div>
+          <div class="col">
+            <div class="grid-child titleText">
+              <h2><%= blog.title %></h2>
+            </div>
+            <span><%= blog.createdAt.toDateString() %></span>
+          </div>
+        </div>
+      </a>
+    <% }) %>
+
+  </section>
+
+</div>

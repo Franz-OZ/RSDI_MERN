@@ -1,0 +1,34 @@
+<a href="/team_admin">&larr; Back</a>
+<div class="admin-title">
+  <h2>Edit Team Member</h2>
+  <form class="" action="/delete-team/<%=data._id%>?_method=DELETE" method="POST">
+    <input type="submit" name="" value="Delete" class="btn-delete btn">
+  </form>
+</div>
+
+<form action="/edit-team/<%=data._id%>?_method=PUT" method="POST" enctype="multipart/form-data">
+
+</select>
+  <label for="name"><b>Name</b></label>
+  <input type="text" placeholder="" name="name" value="<%=data.name%>">
+
+  <label for="role"><b>Role</b></label>
+  <input type="text" placeholder="" name="role" value="<%=data.role%>">
+
+  <label for="linkedin"><b>Linkedin</b></label>
+  <input type="text" placeholder="" name="linkedin" value="<%=data.socMedia.linkedin%>">
+
+  <label for="facebook"><b>Facebook</b></label>
+  <input type="text" placeholder="" name="facebook" value="<%=data.socMedia.facebook%>">
+
+  <label for="gmail"><b>E-mail</b></label>
+  <input type="text" placeholder="" name="gmail" value="<%=data.socMedia.gmail%>">
+
+  <label for="twitter"><b>Twitter</b></label>
+  <input type="text" placeholder="" name="twitter" value="<%=data.socMedia.twitter%>">
+
+  <label for="profileImg"><b>Add Team Member Profile Image</b></label>
+  <input type="file" name="profileImg" id="profileImg" accept="image/png, image/jpeg">
+
+  <input type="submit" value="Add" class="addBtn">
+</form>

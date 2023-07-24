@@ -1,0 +1,48 @@
+<!-- Team! -->
+
+<section id="team">
+    <div class="container">
+        <div class="row">
+            <div class="col-12">
+                <div class="intro">
+                    <h1>Team Members</h1>
+                </div>
+            </div>
+        </div>
+        <div class="row justify-content-center">
+          <% data.forEach(teamMember => { %>
+            <div class="col-lg-4 col-md-8">
+                <div class="team-member">
+                    <div class="image">
+                        <img src="<%=teamMember.imageUrl%>" alt="<%=teamMember.name%>">
+                        <div class="social-icons">
+                            <p>
+                                <% if (teamMember.socMedia.linkedin) { %>
+                              <a href="<%=teamMember.socMedia.linkedin%>" target="_blank"><i class='bx bxl-linkedin'></i></a>
+                               <% } %>
+                               <% if (teamMember.socMedia.gmail) { %>
+                                    <a href="mailto: <%=teamMember.socMedia.gmail%>" target="_blank"><i class='bx bxl-gmail'></i></a>
+                                <% } %>
+                                <% if (teamMember.socMedia.facebook) { %>
+                                    <a href="<%=teamMember.socMedia.facebook%>" target="_blank"><i class='bx bxl-facebook'></i></a>
+                                <% } %>
+                                <% if (teamMember.socMedia.twitter) { %>
+                                    <a href="<%=teamMember.socMedia.twitter%>" target="_blank"><i class='bx bxl-twitter'></i></a>
+                                <% } %>
+                            </p>
+                        </div>
+                        <a href="/teamMember/<%=teamMember._id%>">
+
+                        <div class="overlay"></div>
+                      </a>
+                    </div>
+
+                    <h3><%=teamMember.name%></h3>
+                    <h5><%=teamMember.role%></h5>
+
+                </div>
+            </div>
+<% })%>
+        </div>
+    </div>
+</section>

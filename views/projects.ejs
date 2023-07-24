@@ -1,0 +1,22 @@
+<section>
+    <div class="container">
+            <div>
+                                <h1><%=data.title%></h1>
+                                <p><%-data.body%></p>
+                              </div>
+                              <div class="container activitis">
+                                <h5>Related Activities</h5>
+                                <ul>
+                                <%activities.forEach(activity => {%>
+                                  <a href="/news/<%=activity._id%>/">
+                                     <li><%=activity.title%></li>
+                                  </a>
+                                  <%  });%>
+                                </ul>
+                              </div>
+                              <%if (data.pdfURL){%>
+                              <embed src=<%=data.pdfURL%> type="application/pdf" width="100%" height="600px" />
+                                <%  }%>
+                          </div>
+
+</section>
