@@ -137,7 +137,7 @@ const count = await Projects.count();
 const nextPage=parseInt(page)+1;
 const hasNextPage=nextPage<=Math.ceil(count/perPage);
 
-  res.render('ProjectsList', {
+  res.render('projectsList', {
     locals,
     data,
     current:page,
